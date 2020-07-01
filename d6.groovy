@@ -2,7 +2,7 @@ job("jobt6-job1") {
 	description("launch k8s container, attach pvc, expose it")
 	
 	scm {
-		github('https://github.com/IshanSinghal/devt6','master')
+		github('IshanSinghal/devt6','master')
 	}
 	
 	triggers {
