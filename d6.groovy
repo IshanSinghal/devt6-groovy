@@ -86,8 +86,8 @@ fi
 }
 
 deliveryPipelineView("devt6") {
-	allowPipelineStart(boolean value = true)
-	allowRebuild(boolean value = true)
+	allowPipelineStart(true)
+	allowRebuild(true)
 	columns(1)
 	pipelineInstances(3)
 	pipelines {
