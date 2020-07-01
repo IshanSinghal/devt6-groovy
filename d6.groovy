@@ -70,18 +70,17 @@ fi
 
 	}
 	
-	postBuildPublishers {
-		extendedEmail {
-			triggers {
-				unstable {
-					attachBuildLog(true)
-					recipientList("ishandsce@gmail.com")
-					subject("App not running")
-				}
-			}
-		}
-
-	}
+	publishers {
+        extendedEmail {
+            triggers {
+                failure {
+                    sendTo {
+                        recipientList("ishandsce@gmail.com")
+                    }
+                }
+            }
+        }
+    }
 
 }
 
