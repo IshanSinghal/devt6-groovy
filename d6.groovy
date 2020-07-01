@@ -52,7 +52,7 @@ job("jobt6-job3") {
 	description("testing")
 	
 	triggers {
-		upstream("jobt6-job1", String threshold = 'SUCCESS')
+		upstream("jobt6-job1", 'SUCCESS')
 	}
 	
 	steps {
@@ -74,7 +74,7 @@ fi
 		extendedEmail {
 			triggers {
 				unstable {
-					attachBuildLog(boolean attachBuildLog = true)
+					attachBuildLog(true)
 					recipientList("ishandsce@gmail.com")
 					subject("App not running")
 				}
