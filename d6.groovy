@@ -85,7 +85,17 @@ fi
 
 }
 
-
+deliveryPipelineView("devt6") {
+	allowPipelineStart(boolean value = true)
+	allowRebuild(boolean value = true)
+	columns(int 1)
+	pipelineInstances(3)
+	pipelines {
+		component("devt6pipe", "devt6-job2")
+	}
+	updateInterval(2)
+	
+}
 
 
 
