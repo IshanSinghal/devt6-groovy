@@ -7,6 +7,7 @@ job("jobt6-job1") {
 	
 	triggers {
 		scm("* * * * *")
+		upstream("jobt6-job2", 'SUCCESS')
     }
 	
 	steps {
