@@ -36,11 +36,11 @@ if sudo ls . | grep -E 'html|php'
 then
 sudo kubectl apply -k /root/devt6/yaml-web/.
 podname=\$(sudo kubectl get pod | grep testpod | cut -d" " -f1)
-sudo kubectl cp index.php default/$podname:/var/www/html/
+sudo kubectl cp index.php default/\$podname:/var/www/html/
 else
 sudo kubectl apply -k /root/devt6/yaml-web/.
 podname=\$(sudo kubectl get pod | grep testpod | cut -d" " -f1)
-sudo kubectl cp index.py default/$podname:/app/.
+sudo kubectl cp index.py default/\$podname:/app/.
 fi
 
 """)
