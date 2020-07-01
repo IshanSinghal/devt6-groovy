@@ -57,9 +57,8 @@ job("jobt6-job3") {
 	
 	steps {
 	
-		shell {
-			command("""
-status=$(sudo curl -o /dev/null -w "%{http_code}" -s 192.168.99.101:30000/)
+		shell("""
+status=${(sudo curl -o /dev/null -w "%{http_code}" -s 192.168.99.101:30000/)}
 if [[ $status == 200 ]]
 then
 echo "Running fine!"
@@ -68,7 +67,7 @@ echo "Problem!"
 exit 1
 fi
 """)
-		}
+
 	}
 	
 	postBuildPublishers {
