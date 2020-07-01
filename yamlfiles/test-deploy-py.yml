@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testpod
+  labels:
+    env: task6os
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      env: task6os
+  template:
+    metadata:
+      name: task6-pods
+      labels:
+        env: task6os
+    spec:
+      containers:
+      - name: testcon
+        image: ishandsce/task6os
+        volumeMounts:
+        - name: test-vol1
+          mountPath: /app
+      volumes:
+      - name: test-vol1
+        persistentVolumeClaim:
+        claimName: test-pvc

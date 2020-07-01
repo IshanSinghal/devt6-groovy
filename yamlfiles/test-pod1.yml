@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testpod1
+  labels:
+    env: task3os
+spec:
+  containers:
+  - name: testcon1
+    image: ishandsce/task3os
+    volumeMounts:
+      - name: test-vol1
+        mountPath: /var/www/html
+  volumes:
+  - name: test-vol1
+    persistentVolumeClaim:
+      claimName: test-pvc1
