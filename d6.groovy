@@ -35,10 +35,12 @@ echo "push done"
 if sudo ls . | grep -E 'html|php'
 then
 sudo kubectl apply -k /root/devt6/yaml-web/.
-sudo kubectl cp index.php default/task6-pods:/var/www/html/
+podname=\$(sudo kubectl get pod | grep testpod | cut -d" " -f1)
+sudo kubectl cp index.php default/$podname:/var/www/html/
 else
-sudo kubectl apply -k /root/devt6/yaml-py/.
-sudo kubectl cp index.py default/task6-pods:/app/.
+sudo kubectl apply -k /root/devt6/yaml-web/.
+podname=\$(sudo kubectl get pod | grep testpod | cut -d" " -f1)
+sudo kubectl cp index.py default/$podname:/app/.
 fi
 
 """)
