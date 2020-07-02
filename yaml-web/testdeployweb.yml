@@ -21,8 +21,13 @@ spec:
         volumeMounts:
         - name: test-vol1
           mountPath: /var/www/html
+        - name: test-vol2
+          mouthPath: /var/log/httpd
       volumes:
       - name: test-vol1
         persistentVolumeClaim:
-          claimName: test-pvc
+          claimName: test-pvc1
+      - name: test-vol2
+        persistentVolumeClaim:
+          claimName: test-pvc2
 
